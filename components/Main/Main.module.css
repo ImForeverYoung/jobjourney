@@ -1,0 +1,174 @@
+/* File: app/page.module.css */
+
+/* Главный контейнер для всего контента страницы */
+.mainContainer {
+  width: 100%;
+  padding-top: 50px;
+}
+
+/* --- СТИЛИ ДЛЯ ГЛАВНОГО ЭКРАНА С КАРТИНКОЙ --- */
+.heroImageSection {
+  position: relative;
+  max-width: 1100px;
+  height: 600px; /* Можете настроить высоту */
+  margin: 2rem auto;
+  border-radius: 24px;
+  overflow: hidden; /* Обязательно, чтобы всё скруглилось */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  
+  /* Задаем фон */
+  background-image: url('/images/schloss.jpg');
+  background-size: cover;
+  background-position: top; /* Лучше center, чтобы замок был в фокусе */
+
+  /* Центрируем контент внутри */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Затемняющий оверлей */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Немного темнее для лучшего контраста */
+}
+
+/* Контейнер для текста, чтобы он был НАД оверлеем */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.heroContent p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.typedText {
+  font-weight: bold;
+}
+
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Стили для кнопки "Подать заявку" */
+.ctaButton {
+  background-color: #28a745;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.ctaButton:hover {
+  background-color: #218838;
+}
+.secondaryButton {
+  background-color: transparent;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid #fff; /* Белая рамка */
+  margin-left: 1rem; /* Отступ от первой кнопки */
+}
+
+.secondaryButton:hover {
+  background-color: #fff; /* Белый фон при наведении */
+  color: #333; /* Темный текст при наведении */
+}
+
+
+
+
+.infoSection {
+  max-width: 1100px;
+  margin: 4rem auto; /* Creates space between the hero and this section */
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #F0F6FC;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.infoIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.infoSection h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #212529;
+}
+
+.infoSubtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto 3rem auto; /* Adds space below the subtitle */
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.infoCard {
+  background-color: #f8f9fa; /* Light gray background for cards */
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.infoCard h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #3A6EA5; /* Your primary brand color */
+}
+
+.infoCard p {
+  line-height: 1.6;
+  color: #495057;
+}
+
+
+
+/* --- СТИЛИ ДЛЯ СЕКЦИИ "О ПРОГРАММЕ" --- */
+.aboutSection {
+  max-width: 1100px;
+  margin: 4rem auto; /* Отступ сверху побольше */
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  text-align: center;
+}

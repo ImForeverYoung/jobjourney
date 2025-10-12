@@ -1,0 +1,23 @@
+
+
+
+
+body, html, #root {
+  height: 100%;
+  
+  
+  
+}
+
+/* File: app/page.module.css */
+.main {
+  /* margin-top: -10px; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* background-color: #f9f9f9; */
+  width: 100%;
+  
+  
+}
+
+
+

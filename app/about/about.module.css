@@ -1,0 +1,247 @@
+/* File: app/about/about.module.css */
+
+.main {
+  background-color: #f8f9fa; /* Светлый фон для всей страницы */
+}
+
+/* --- Секция 1: Hero --- */
+.hero {
+  background-color: #3A6EA5; /* Ваш основной синий цвет */
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+/* --- Секция 2: Наш подход --- */
+.approachSection {
+  position: relative; /* Необходимо для позиционирования псевдо-элемента */
+  max-width: 1100px;
+  margin: 4rem auto;
+  border-radius: 24px;
+  overflow: hidden; /* Скрываем все, что выходит за скругленные углы */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  padding: 4rem 2rem;
+  
+  /* Фоновое изображение */
+  background-image: url('/images/germany.jpg');
+  background-size: cover;
+  background-position: right;
+  color: #fff; /* Весь текст внутри будет белым */
+  text-align: center;
+}
+
+/* Создаем затемняющий оверлей с помощью псевдо-элемента ::before */
+.approachSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(40, 60, 90, 0.5); /* Темно-синий полупрозрачный фон */
+  z-index: 1; /* Оверлей будет под контентом */
+}
+
+/* Контейнер для контента, чтобы он был НАД оверлеем */
+.approachContent {
+  position: relative;
+  z-index: 2;
+}
+
+.approachIntro {
+  font-size: 1.4rem;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.4;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featureIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  stroke-width: 1;
+  color: #fff; /* Убедимся, что цвет иконок белый */
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* <-- Добавляем плавный переход */
+}
+
+/* Новое правило для эффекта при наведении */
+.featureItem:hover .featureIcon {
+  transform: scale(1.15); /* <-- Увеличиваем иконку на 15% */
+  color: #FFC107; /* <-- Меняем цвет на ваш акцентный золотой */
+}
+
+.featureItem h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out; /* <-- Можно добавить переход и для заголовка */
+}
+
+/* Заголовок тоже меняет цвет при наведении на карточку */
+.featureItem:hover h3 {
+  color: #FFC107;
+}
+/* .approachSection {
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.approachSection h2 {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #212529;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.stepIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #212529;
+} */
+
+/* --- Секция 3: Команда --- */
+.teamSection {
+  
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.teamSection h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.teamIntro {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  color: #6c757d;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.teamMember h3 {
+    /* text-align: center;
+  white-space: nowrap;  */
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.teamMember p {
+  color: #6c757d;
+}
+
+.teamPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Делаем фото круглым */
+  object-fit: cover;  /* Гарантирует, что фото заполнит круг, не искажаясь */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень для объема */
+}
+
+/* --- Секция 4: Призыв к действию (CTA) --- */
+.ctaSection {
+background-color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.ctaSection h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  background-color: #FFC107; /* Ваш акцентный желтый */
+  color: #212529;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
+}

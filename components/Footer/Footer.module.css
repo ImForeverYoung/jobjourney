@@ -1,0 +1,111 @@
+/* File: components/Footer.module.css */
+.footer {
+  /* background-color: #f8f9fa; */
+  background-color: #212529;
+  color: #6c757d;
+  /* text-align: center;
+  padding: 1.5rem 0; */
+  /* border-top: 1px solid #eaeaea;  */
+  /*margin-top: 4rem;*/
+  padding-top: 4rem; 
+}
+
+/* .footer {
+  background-color: #212529; /* Темный фон для футера 
+  color: #adb5bd; /* Светло-серый цвет для текста 
+  
+} 
+*/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.brandSection p {
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.contactSection h3, .socialSection h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Декоративная линия под заголовками */
+.contactSection h3::after, .socialSection h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #FFC107; /* Ваш акцентный золотой */
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactList li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.contactList a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactList a:hover {
+  color: #fff;
+}
+
+.contactIcon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+  color: #FFC107;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcons a {
+  color: #adb5bd;
+  font-size: 2rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.socialIcons a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.bottomBar {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid #343a40;
+}
