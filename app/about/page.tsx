@@ -132,7 +132,7 @@ export default function AboutPage() {
           </div>
           <div className={styles.teamMember}>
             <Image
-              src="/images/teammembers/yegor.jpeg" 
+              src="/images/teammembers/yegor.png" 
               alt="Фотография Имя Фамилия"
               width={150} 
               height={150}
