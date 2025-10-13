@@ -30,7 +30,18 @@
   padding: 12px;
   border: 1px solid #dddfe2;
   border-radius: 6px;
+
+  /* --- ИСПРАВЛЕНИЕ ЗДЕСЬ --- */
+  background-color: #fff; /* Явно задаем белый фон */
+  color: #212529;        /* Явно задаем темный цвет текста */
 }
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #3A6EA5;
+  box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.15);
+}
+
 .submitButton {
   width: 100%;
   padding: 12px;

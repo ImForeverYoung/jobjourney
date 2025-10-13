@@ -1,7 +1,7 @@
 // File: app/about/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaRegLightbulb, FaRegFileAlt, FaRegHandshake, FaRegLifeRing, FaPlaneDeparture } from 'react-icons/fa';
+import { FaRegLightbulb, FaRegFileAlt, FaRegHandshake, FaRegLifeRing, FaPlaneDeparture, FaBook } from 'react-icons/fa';
 
 import styles from './about.module.css';
 
@@ -27,7 +27,7 @@ export default function AboutPage() {
       <section className={styles.approachSection}>
         <div className={styles.approachContent}>
           <p className={styles.approachIntro}>
-            Наша компания напрямую сотрудничает с проверенными немецкими работодателями, предлагает широкий выбор вакансий и полную поддержку на всех этапах программы Ferienjob.
+            Наша компания напрямую сотрудничает с проверенными немецкими работодателями, обучает немецкому языку, предлагает широкий выбор вакансий и полную поддержку на всех этапах программы Ferienjob.
           </p>
           <div className={styles.featuresGrid}>
             <div className={styles.featureItem}>
@@ -41,6 +41,10 @@ export default function AboutPage() {
             <div className={styles.featureItem}>
               <FaRegHandshake className={styles.featureIcon} />
               <h3>Надежные работодатели</h3>
+            </div>
+            <div className={styles.featureItem}>
+              <FaBook className={styles.featureIcon} />
+              <h3>Собственные курсы немецкого</h3>
             </div>
             <div className={styles.featureItem}>
               <FaPlaneDeparture className={styles.featureIcon} />

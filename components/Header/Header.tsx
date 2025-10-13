@@ -16,7 +16,7 @@ export default function Header() {
         </div>
         <div className={styles.Container}>
             <nav>
-            <Link href="/about" className={styles.navLink}>О программе</Link>
+            <Link href="/about" className={styles.navLink}>О нас</Link>
             {/* <Link href="#reviews" className={styles.navLink}>Отзывы</Link> */}
             <Link href="#contact" className={styles.navLink}>Контакты</Link>
             </nav>

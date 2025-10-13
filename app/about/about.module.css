@@ -83,8 +83,10 @@
 
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem; */
+  grid-template-columns: repeat(5, 1fr); /* <-- Создаем ровно 5 колонок равной ширины */
+  gap: 1.5rem; /* Можно немного уменьшить отступ, например до 1.5rem */
 }
 
 .featureItem {
@@ -211,7 +213,7 @@
 
 /* --- Секция 4: Призыв к действию (CTA) --- */
 .ctaSection {
-background-color: #fff;
+
   text-align: center;
   padding: 5rem 1rem;
 }
@@ -245,3 +247,19 @@ background-color: #fff;
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
 }
+
+
+
+
+@media (max-width: 992px) {
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки для планшетов */
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки для мобильных */
+  }
+}
+
