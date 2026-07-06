@@ -13,6 +13,15 @@ export default function Main() {
       <main className={styles.mainContainer}>
         {/* --- ГЛАВНЫЙ ЭКРАН С КАРТИНКОЙ И АНИМАЦИЕЙ --- */}
         <section className={styles.heroImageSection}>
+          <Image
+            src="/images/schloss.jpg"
+            alt="Замок в Германии"
+            fill
+            priority
+            quality={70}
+            sizes="(max-width: 1200px) 100vw, 1100px"
+            className={styles.heroImage}
+          />
           <div className={styles.overlay} />
           <div className={styles.heroContent}>
             <h1 style={{ color: theme.colors.white }}>

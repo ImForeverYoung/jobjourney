@@ -15,11 +15,6 @@
   border-radius: 24px;
   overflow: hidden; /* Обязательно, чтобы всё скруглилось */
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-  
-  /* Задаем фон */
-  background-image: url('/images/schloss.jpg');
-  background-size: cover;
-  background-position: top; /* Лучше center, чтобы замок был в фокусе */
 
   /* Центрируем контент внутри */
   display: flex;
@@ -27,6 +22,13 @@
   align-items: center;
   text-align: center;
   padding: 2rem;
+}
+
+/* Фоновое изображение (оптимизируется через next/image) */
+.heroImage {
+  object-fit: cover;
+  object-position: top;
+  z-index: 0;
 }
 
 /* Затемняющий оверлей */
