@@ -1,176 +1,836 @@
-/* File: app/page.module.css */
-
-/* Главный контейнер для всего контента страницы */
 .mainContainer {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 28px;
+  --blue: #0156BA;
+  --navy: #032d5e;
+  --red: #E62329;
+  --gold: #FDBD35;
+  --ink: #060707;
+  --blue-light: #EAF1FB;
+  --blue-mid: #D7E3F8;
+  --red-light: #FFE9E9;
+  --gold-light: #FFF4D6;
 }
 
-/* --- СТИЛИ ДЛЯ ГЛАВНОГО ЭКРАНА С КАРТИНКОЙ --- */
-.heroImageSection {
-  position: relative;
-  max-width: 1100px;
-  height: 600px; /* Можете настроить высоту */
-  margin: 2rem auto;
-  border-radius: 24px;
-  overflow: hidden; /* Обязательно, чтобы всё скруглилось */
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
-  /* Центрируем контент внутри */
+/* ---------- Общие заголовки (широкий жирный капс, как на uscom) ---------- */
+.displayTitle {
+  font-size: clamp(1.45rem, 4vw, 2.3rem);
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.displayTitle > span {
+  display: block;
+}
+
+.center {
+  text-align: center;
+}
+
+.center > span {
+  display: inline-block;
+}
+
+.red { color: var(--red); }
+.blue { color: var(--blue); }
+.gold { color: #9e6800; }
+.ink { color: var(--ink); }
+.white { color: #fff; }
+
+.chipGold {
+  width: fit-content;
+  background: var(--gold);
+  color: #3d2a00;
+  padding: 0.05em 0.35em;
+  border-radius: 0.28em;
+  rotate: -1.5deg;
+}
+
+.sectionLead {
+  text-align: center;
+  color: #4a5562;
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: -0.5rem auto 2.5rem;
+  line-height: 1.55;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  width: min(1100px, 100% - 32px);
+  min-height: 600px;
+  margin: 1.5rem auto 4rem;
+  border-radius: 24px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 1.5rem 7rem;
 }
 
-/* Фоновое изображение (оптимизируется через next/image) */
 .heroImage {
   object-fit: cover;
   object-position: top;
   z-index: 0;
+  border-radius: 24px;
 }
 
-/* Затемняющий оверлей */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Немного темнее для лучшего контраста */
+  inset: 0;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(14, 27, 46, 0.35) 0%, rgba(14, 27, 46, 0.62) 100%);
 }
 
-/* Контейнер для текста, чтобы он был НАД оверлеем */
 .heroContent {
   position: relative;
   z-index: 2;
   color: #fff;
+  max-width: 960px;
 }
 
-.heroContent h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  margin-bottom: 1.25rem;
 }
 
-.heroContent p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
-  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.7);
+.heroTitle {
+  font-size: clamp(1.75rem, 5.2vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  margin-bottom: 1.25rem;
 }
 
-.typedText {
-  font-weight: bold;
+.heroStatic {
+  display: block;
 }
 
+/* строка с Typed: фиксированная высота, чтобы страница не прыгала */
+.heroTyped {
+  display: block;
+  min-height: 1.2em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.heroLead {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-wrap: balance;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
 
 .buttonGroup {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 1rem;
+}
+
+/* «Объёмная» кнопка */
+.btnPrimary {
+  background: var(--gold);
+  color: #3d2a00;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 1.05rem 2.2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 0 #b8880c, 0 16px 26px rgba(0, 0, 0, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #b8880c, 0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btnGhost {
+  color: #fff;
+  font-weight: 700;
+  padding: 1.05rem 1.8rem;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btnGhost:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btnPrimary:focus-visible,
+.btnGhost:focus-visible,
+.waButton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.heroBadge {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 48%);
+  width: min(360px, 74vw);
+  aspect-ratio: 480 / 300;
+  z-index: 4;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.3));
+}
+
+.badgeShape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.badgeText {
+  position: absolute;
+  inset: 0;
+  display: flex;
   align-items: center;
-}
-
-/* Стили для кнопки "Подать заявку" */
-.ctaButton {
-  background-color: #28a745;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.2s;
-}
-
-.ctaButton:hover {
-  background-color: #218838;
-}
-.secondaryButton {
-  background-color: transparent;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.2s ease-in-out;
-  border: 2px solid #fff; /* Белая рамка */
-  margin-left: 1rem; /* Отступ от первой кнопки */
-}
-
-.secondaryButton:hover {
-  background-color: #fff; /* Белый фон при наведении */
-  color: #333; /* Темный текст при наведении */
-}
-
-
-
-
-.infoSection {
-  max-width: 1100px;
-  margin: 4rem auto; /* Creates space between the hero and this section */
-  padding: 3rem 2rem;
+  justify-content: center;
   text-align: center;
-  background-color: #F0F6FC;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-}
-
-.infoIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  padding: 0 48px;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 900;
+  color: var(--blue);
+  text-transform: uppercase;
+  font-size: clamp(15px, 3.6vw, 22px);
   line-height: 1;
+  letter-spacing: -0.3px;
 }
 
-.infoSection h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  color: #212529;
-}
-
-.infoSubtitle {
-  font-size: 1.1rem;
-  color: #6c757d;
-  max-width: 600px;
-  margin: 0 auto 3rem auto; /* Adds space below the subtitle */
-}
-
-.infoGrid {
+/* ---------- ЦИФРЫ ---------- */
+.stats {
+  width: min(1100px, 100% - 32px);
+  margin: 0 auto 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  text-align: left;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
 
-.infoCard {
-  background-color: #f8f9fa; /* Light gray background for cards */
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #e9ecef;
+.stat {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.4rem 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
 
-.infoCard h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: #3A6EA5; /* Your primary brand color */
+.statValue {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: var(--blue);
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
-.infoCard p {
+.statUnit {
+  font-size: 0.55em;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.statLabel {
+  margin-top: 0.4rem;
+  color: #4a5562;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ---------- ЧТО ТАКОЕ FERIENJOB ---------- */
+.programSection {
+  width: min(1100px, 100% - 32px);
+  margin: 4rem auto;
+  padding: 3.5rem;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  scroll-margin-top: 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.programText {
+  position: relative;
+  z-index: 1;
+  max-width: 60%;
+}
+
+.programLead {
+  font-size: 1.15rem;
   line-height: 1.6;
-  color: #495057;
+  color: #333a42;
+  margin-bottom: 1rem;
+  max-width: 500px;
 }
 
+.programVisual {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
 
+.gateImg {
+  width: 580px;
+  height: auto;
+  position: relative;
+  right: -4rem;
+  bottom: -3.5rem;
+  opacity: 0.15;
+  filter: grayscale(1);
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.4s ease;
+}
 
-/* --- СТИЛИ ДЛЯ СЕКЦИИ "О ПРОГРАММЕ" --- */
-.aboutSection {
-  max-width: 1100px;
-  margin: 4rem auto; /* Отступ сверху побольше */
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 12px;
+.programSection:hover .gateImg {
+  opacity: 0.25;
+}
+
+/* ---------- КАРТОЧКИ ВЕЕРОМ (цвета флага) ---------- */
+.fanSection {
+  width: min(1100px, 100% - 32px);
+  margin: 6rem auto 5rem;
+}
+
+.fan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.fanCard {
+  width: 320px;
+  min-height: 340px;
+  padding: 2rem 1.75rem;
+  border-radius: 28px;
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.fanCard h3 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.6rem;
+}
+
+.fanCard p {
+  line-height: 1.5;
+  font-size: 1.02rem;
+}
+
+.fanIcon {
+  font-size: 4.2rem;
+  margin-bottom: auto;
+  padding-bottom: 1.5rem;
+  box-sizing: content-box;
+}
+
+.fanBlack {
+  background: var(--ink);
+  color: #fff;
+  rotate: -7deg;
+  margin-right: -36px;
+  margin-top: 28px;
+  padding-right: 3.4rem;
+}
+
+.fanBlack .fanIcon { color: var(--gold); }
+
+.fanRed {
+  background: var(--red);
+  color: #fff;
+  z-index: 2;
+}
+
+.fanGold {
+  background: var(--gold);
+  color: #2b1d00;
+  rotate: 7deg;
+  margin-left: -36px;
+  margin-top: 28px;
+  padding-left: 3.4rem;
+}
+
+/* ---------- СТОИМОСТЬ: билеты ---------- */
+.priceSection {
+  width: min(1100px, 100% - 32px);
+  margin: 7rem auto 4rem;
+  scroll-margin-top: 110px;
+}
+
+.tickets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.ticket {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.ticketStub {
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-right: 2px dashed rgba(255, 255, 255, 0.55);
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ticketStub b {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  color: var(--gold);
+  letter-spacing: 0;
+}
+
+.ticketBody {
+  padding: 1.6rem 1.4rem;
+}
+
+.ticketAmount {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 900;
+  font-size: 1.65rem;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.7rem;
+  white-space: nowrap;
+}
+
+.ticketBody h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.ticketWhen {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #8a5b00;
+  background: #fff4d6;
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  margin: 0.5rem 0 0.7rem;
+}
+
+.ticketBody p {
+  color: #4a5562;
+  line-height: 1.5;
+  font-size: 0.97rem;
+}
+
+.priceNotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.noteCard {
+  background: var(--blue-light);
+  border-radius: 20px;
+  padding: 1.6rem 1.6rem 1.2rem;
+}
+
+.noteCard h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+
+.noteCard ul {
+  list-style: none;
+}
+
+.noteCard li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0.6rem;
+  align-items: start;
+  margin-bottom: 0.7rem;
+  line-height: 1.45;
+  color: #333a42;
+}
+
+.ok { color: #1f9d55; margin-top: 4px; }
+.no { color: #9aa6b5; margin-top: 4px; }
+
+/* ---------- НАМ ДОВЕРЯЮТ (синяя полоса) ---------- */
+.trustStrip {
+  background: var(--navy);
+  padding: 4rem 1.5rem 3.5rem;
+  margin: 6rem 0 5rem;
+}
+
+.trustStrip .displayTitle {
+  margin-bottom: 2.5rem;
+}
+
+.trustGrid {
+  width: min(1000px, 100% - 32px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.trustItem {
   text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.trustValue {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.trustLabel {
+  color: #c5d3e6;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* ---------- ЧТО ВХОДИТ В СТОИМОСТЬ ---------- */
+.includedSection {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.includedCard {
+  background: var(--blue-light);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 2px solid var(--blue-mid);
+}
+
+.includedTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.includedIcon {
+  color: #1f9d55;
+  font-size: 1.1rem;
+}
+
+.includedList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.includedList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: #222;
+  font-size: 0.97rem;
+  line-height: 1.45;
+}
+
+.includedItemIcon {
+  color: var(--blue);
+  font-size: 1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.excludedCard {
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 2px solid #e8ecf0;
+}
+
+.excludedTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #6b7684;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.excludedIcon {
+  color: #9aa6b5;
+  font-size: 1rem;
+}
+
+.excludedList {
+  list-style: none;
+}
+
+.excludedList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: #6b7684;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 0.7rem;
+}
+
+.excludedItemIcon {
+  color: #c5cdd7;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* ---------- ГАРАНТИИ ---------- */
+.guaranteeCard {
+  background: var(--gold-light);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 1.6rem 2rem 1.2rem;
+  margin-top: 18px;
+}
+
+.guaranteeCard h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+
+.guaranteeCard ul {
+  list-style: none;
+}
+
+.guaranteeCard li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0.6rem;
+  align-items: start;
+  margin-bottom: 0.7rem;
+  line-height: 1.45;
+  color: #333a42;
+}
+
+/* ---------- ДЛЯ РОДИТЕЛЕЙ ---------- */
+.parentsSection {
+  width: min(1100px, 100% - 32px);
+  margin: 5rem auto 4rem;
+}
+
+.parentsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.parentCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f6;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.parentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.parentIcon {
+  font-size: 2rem;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.parentCard h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.parentCard p {
+  color: #4a5562;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ---------- ЗАЯВКА ---------- */
+.contactSection {
+  width: min(1100px, 100% - 32px);
+  margin: 5rem auto 3rem;
+  padding: 3.5rem;
+  border-radius: 28px;
+  background: var(--navy);
+  background-image: radial-gradient(circle at 15% 0%, rgba(1, 86, 186, 0.55), transparent 55%);
+  color: #dbe5f2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  scroll-margin-top: 110px;
+}
+
+.contactText p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+}
+
+.waButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25d366;
+  color: #06310f;
+  font-weight: 800;
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  transition: transform 0.15s;
+}
+
+.waButton:hover { transform: translateY(-2px); }
+.waButton svg { font-size: 1.3rem; }
+
+.contactText .contactSmall {
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.contactSmall a {
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.aboutLink {
+  text-align: center;
+  color: #4a5562;
+  margin-bottom: 4rem;
+}
+
+.aboutLink a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ---------- АДАПТИВ ---------- */
+@media (max-width: 960px) {
+  .tickets { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .fan { flex-direction: column; align-items: center; gap: 0; }
+  .fanCard { width: min(340px, 88%); min-height: 0; }
+  .fanIcon { font-size: 3rem; padding-bottom: 1.25rem; }
+  .fanBlack { margin: 0 0 -24px; rotate: -3deg; padding: 2rem 1.75rem 3rem; }
+  .fanGold { margin: -24px 0 0; rotate: 3deg; padding: 3rem 1.75rem 2rem; }
+  .trustGrid { grid-template-columns: repeat(2, 1fr); }
+  .includedSection { grid-template-columns: 1fr; }
+  .includedList { grid-template-columns: 1fr; }
+  .parentsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 820px) {
+  .programSection {
+    padding: 2.5rem 1.5rem;
+  }
+  .contactSection {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  .programSection { text-align: center; overflow: hidden; }
+  .programText { max-width: 100%; }
+  .programSection .displayTitle > span { margin-inline: auto; }
+  .programLead { margin-inline: auto; }
+  .programVisual {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .gateImg {
+    width: 240px;
+    right: -1.5rem;
+    bottom: -2rem;
+    opacity: 0.09;
+  }
+  .hero { min-height: 540px; }
+  .parentsGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .heroTyped { font-size: 0.82em; }
+  .statLabel { font-size: 0.85rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btnPrimary, .btnGhost, .waButton { transition: none; }
 }

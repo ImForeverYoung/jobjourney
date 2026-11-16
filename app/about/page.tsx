@@ -1,9 +1,16 @@
 // File: app/about/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaRegLightbulb, FaRegFileAlt, FaRegHandshake, FaRegLifeRing, FaPlaneDeparture, FaBook } from 'react-icons/fa';
+import { FaRegLightbulb, FaRegFileAlt, FaRegHandshake, FaPlaneDeparture, FaBook } from 'react-icons/fa';
 
+import type { Metadata } from 'next';
 import styles from './about.module.css';
+
+export const metadata: Metadata = {
+  title: 'О нас',
+  description:
+    'Job Journey — агентство из Астаны, которое помогает студентам Казахстана поехать на летнюю работу в Германию по программе Ferienjob. Команда и подход.',
+};
 
 // Header и Footer больше не нужны, так как они вставляются из layout.tsx
 export default function AboutPage() {
@@ -33,62 +40,32 @@ export default function AboutPage() {
             <div className={styles.featureItem}>
               <FaRegLightbulb className={styles.featureIcon} />
               <h3>Прозрачная консультация</h3>
+              <p>Честно рассказываем обо всех деталях программы, чтобы вы приняли взвешенное решение.</p>
             </div>
             <div className={styles.featureItem}>
               <FaRegFileAlt className={styles.featureIcon} />
               <h3>Помощь с документами</h3>
+              <p>Помогаем собрать и правильно оформить каждый документ.</p>
             </div>
             <div className={styles.featureItem}>
               <FaRegHandshake className={styles.featureIcon} />
               <h3>Надежные работодатели</h3>
+              <p>Работаем с проверенными немецкими компаниями.</p>
             </div>
             <div className={styles.featureItem}>
               <FaBook className={styles.featureIcon} />
               <h3>Собственные курсы немецкого</h3>
+              <p>Готовим к поездке с нашими преподавателями.</p>
             </div>
             <div className={styles.featureItem}>
               <FaPlaneDeparture className={styles.featureIcon} />
               <h3>Поддержка в Германии</h3>
+              <p>Остаёмся на связи и после вашего отъезда.</p>
             </div>
           </div>
         </div>
       </section>
-      {/* <section className={styles.approachSection}>
-        <h2>Наш подход — ваш комфорт и безопасность</h2>
-        <div className={styles.stepsGrid}>
-          <div className={styles.step}>
-            <div className={styles.stepIcon}>🔍</div>
-            <h3>Прозрачная консультация</h3>
-            <p>
-              Мы честно рассказываем обо всех деталях программы, чтобы вы приняли взвешенное
-              решение.
-            </p>
-          </div>
-          <div className={styles.step}>
-            <div className={styles.stepIcon}>📄</div>
-            <h3>Помощь с документами</h3>
-            <p>
-              Мы берем на себя всю бумажную работу и помогаем правильно оформить каждый документ.
-            </p>
-          </div>
-          <div className={styles.step}>
-            <div className={styles.stepIcon}>🤝</div>
-            <h3>Проверенные работодатели</h3>
-            <p>
-              Мы работаем только с надежными немецкими компаниями, которые обеспечивают хорошие
-              условия труда.
-            </p>
-          </div>
-          <div className={styles.step}>
-            <div className={styles.stepIcon}>✈️</div>
-            <h3>Поддержка в Германии</h3>
-            <p>
-              Наше сопровождение не заканчивается после вашего отъезда. Мы остаемся на связи и
-              помогаем решать вопросы.
-            </p>
-          </div>
-        </div>
-      </section> */}
+      
 
       {/* --- Секция 3: Команда --- */}
       <section className={styles.teamSection}>
@@ -100,7 +77,7 @@ export default function AboutPage() {
           <div className={styles.teamMember}>
             <Image
               src="/images/teammembers/amiran.jpg" 
-              alt="Фотография Имя Фамилия"
+              alt="Амиран Каиркан"
               width={150} 
               height={150}
               className={styles.teamPhoto} //класс для стилизации
@@ -111,7 +88,7 @@ export default function AboutPage() {
           <div className={styles.teamMember}>
             <Image
               src="/images/teammembers/amre.jpg" 
-              alt="Фотография Имя Фамилия"
+              alt="Амре Джумадиев"
               width={150} 
               height={150}
               className={styles.teamPhoto} //класс для стилизации
@@ -122,7 +99,7 @@ export default function AboutPage() {
           <div className={styles.teamMember}>
             <Image
               src="/images/teammembers/mansur.jpg" 
-              alt="Фотография Имя Фамилия"
+              alt="Абилмансур Кубайдоллаев"
               width={150} 
               height={150}
               className={styles.teamPhoto} //класс для стилизации
@@ -133,7 +110,7 @@ export default function AboutPage() {
           <div className={styles.teamMember}>
             <Image
               src="/images/teammembers/yegor.png" 
-              alt="Фотография Имя Фамилия"
+              alt="Егор Курносов"
               width={150} 
               height={150}
               className={styles.teamPhoto} //класс для стилизации

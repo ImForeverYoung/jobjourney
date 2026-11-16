@@ -6,7 +6,7 @@
 
 /* --- Секция 1: Hero --- */
 .hero {
-  background-color: #3A6EA5; /* Ваш основной синий цвет */
+  background-color: #0156BA;
   color: #fff;
   text-align: center;
   padding: 5rem 1rem;
@@ -41,7 +41,7 @@
 /* --- Секция 2: Наш подход --- */
 .approachSection {
   position: relative; /* Необходимо для позиционирования псевдо-элемента */
-  max-width: 1100px;
+  width: min(1100px, 100% - 32px);
   margin: 4rem auto;
   border-radius: 24px;
   overflow: hidden; /* Скрываем все, что выходит за скругленные углы */
@@ -49,9 +49,7 @@
   padding: 4rem 2rem;
   
   /* Фоновое изображение */
-  background-image: url('/images/germany.jpg');
-  background-size: cover;
-  background-position: right;
+  background: #032d5e radial-gradient(circle at 85% 0%, rgba(1, 86, 186, 0.7), transparent 60%);
   color: #fff; /* Весь текст внутри будет белым */
   text-align: center;
 }
@@ -64,7 +62,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(40, 60, 90, 0.5); /* Темно-синий полупрозрачный фон */
+  background: none;
   z-index: 1; /* Оверлей будет под контентом */
 }
 
@@ -106,7 +104,7 @@
 /* Новое правило для эффекта при наведении */
 .featureItem:hover .featureIcon {
   transform: scale(1.15); /* <-- Увеличиваем иконку на 15% */
-  color: #FFC107; /* <-- Меняем цвет на ваш акцентный золотой */
+  color: #FDBD35;
 }
 
 .featureItem h3 {
@@ -117,7 +115,7 @@
 
 /* Заголовок тоже меняет цвет при наведении на карточку */
 .featureItem:hover h3 {
-  color: #FFC107;
+  color: #FDBD35;
 }
 /* .approachSection {
   background-color: #fff;
@@ -263,3 +261,60 @@
   }
 }
 
+
+.featureItem p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #d5e0ee;
+}
+
+@media (max-width: 480px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Обновление: единый стиль с главной --- */
+.hero {
+  width: min(1100px, 100% - 32px);
+  margin: 3.5rem auto 0;
+  border-radius: 24px;
+  background: #0156BA radial-gradient(circle at 10% 0%, rgba(3, 45, 94, 0.75), transparent 60%);
+  padding: 4.5rem 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 4.4vw, 2.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.teamSection h2,
+.ctaSection h2 {
+  font-size: clamp(1.6rem, 4.2vw, 2.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: #060707;
+}
+
+.ctaButton {
+  background: #FDBD35;
+  color: #3d2a00;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 14px;
+  box-shadow: 0 6px 0 #b8880c, 0 16px 26px rgba(253, 189, 53, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #b8880c, 0 10px 18px rgba(253, 189, 53, 0.3);
+}

@@ -1,111 +1,172 @@
-/* File: components/Footer.module.css */
 .footer {
-  /* background-color: #f8f9fa; */
-  background-color: #212529;
-  color: #6c757d;
-  /* text-align: center;
-  padding: 1.5rem 0; */
-  /* border-top: 1px solid #eaeaea;  */
-  /*margin-top: 4rem;*/
-  padding-top: 4rem; 
+  position: relative;
+  background: #021e3f;
+  color: #9fb0c6;
+  padding-top: 4rem;
+  overflow: hidden;
 }
-
-/* .footer {
-  background-color: #212529; /* Темный фон для футера 
-  color: #adb5bd; /* Светло-серый цвет для текста 
-  
-} 
-*/
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: #fff;
-  margin-bottom: 1rem;
-  display: inline-block;
-}
-
-.brandSection p {
-  line-height: 1.6;
-  max-width: 300px;
-}
-
-.contactSection h3, .socialSection h3 {
-  color: #fff;
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
   position: relative;
-  padding-bottom: 0.5rem;
+  z-index: 1;
+  width: min(1100px, 100% - 32px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1.1fr;
+  gap: 2.5rem;
 }
 
-/* Декоративная линия под заголовками */
-.contactSection h3::after, .socialSection h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background-color: #FFC107; /* Ваш акцентный золотой */
+.tagline {
+  line-height: 1.6;
+  max-width: 320px;
+  color: #c6d2e2;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
 }
 
-.contactList {
+.col h3 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.1rem;
+}
+
+.col ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.contactList li {
-  margin-bottom: 1rem;
+.col li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.45;
 }
 
-.contactList a {
-  color: #adb5bd;
-  text-decoration: none;
+.col a {
+  color: #c6d2e2;
   transition: color 0.2s;
 }
 
-.contactList a:hover {
+.col a:hover {
   color: #fff;
 }
 
 .contactIcon {
-  margin-right: 0.75rem;
-  font-size: 1.1rem;
-  color: #FFC107;
+  flex: none;
+  margin-top: 4px;
+  color: #FDBD35;
 }
 
 .socialIcons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .socialIcons a {
-  color: #adb5bd;
-  font-size: 2rem;
-  transition: color 0.2s, transform 0.2s;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.35rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
 .socialIcons a:hover {
+  background: #FDBD35;
+  color: #021e3f;
+  transform: translateY(-2px);
+}
+
+.footer a:focus-visible {
+  outline: 3px solid #FDBD35;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --- Карта 2ГИС --- */
+.mapSection {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100% - 32px);
+  margin: 2.5rem auto 0;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0a2d52;
+}
+
+.mapContainer iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.mapLink {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #FDBD35;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mapLink:hover {
   color: #fff;
-  transform: scale(1.1);
+}
+
+/* Название на всю ширину: размер привязан к ширине окна */
+.watermark {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 900;
+  font-size: min(160px, 9.2vw);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 3.5rem;
+  user-select: none;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.02) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .bottomBar {
-  text-align: center;
-  margin-top: 3rem;
-  padding: 1.5rem 1rem;
-  border-top: 1px solid #343a40;
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100% - 32px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+.bottomBar a {
+  color: #c6d2e2;
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }

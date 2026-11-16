@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Journey — Типографика</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: linear-gradient(135deg, #EAF1FB 0%, #D7E3F8 50%, #A7BCED 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #1a1a1a;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #0156BA;
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .font-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .font-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .badge-display { background: #D7E3F8; color: #0156BA; }
+  .badge-body { background: #d4edda; color: #155724; }
+  .badge-mono { background: #FFF4D6; color: #856404; }
+
+  .font-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .font-desc {
+    font-size: 13px;
+    color: #888;
+    margin-left: auto;
+  }
+
+  .preview {
+    padding: 16px 20px;
+    background: #f8f9fb;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .preview-unbounded {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: #0156BA;
+  }
+  .preview-manrope {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  .preview-mono {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0.5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: #999;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  tbody td {
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f3f3;
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .el-name { font-weight: 600; color: #1a1a1a; }
+  .el-size {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: #666;
+  }
+  .el-weight {
+    font-size: 13px;
+    color: #888;
+  }
+
+  .note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+  }
+  .note-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #EAF1FB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #0156BA;
+    margin-top: 1px;
+  }
+
+  .vars-bar {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .vars-bar span {
+    font-size: 13px;
+    color: #666;
+  }
+  code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    background: #f0f2f5;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #0156BA;
+  }
+
+  .palette {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .palette h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+  }
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .swatch {
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .swatch-name { font-size: 12px; font-weight: 600; }
+  .swatch-hex { font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.8; }
+
+  @media print {
+    body { background: #fff; padding: 20px; }
+    .card, .vars-bar, .palette { box-shadow: none; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Job Journey</h1>
+    <p>Типографическая система сайта jobjourney.kz</p>
+  </div>
+
+  <!-- UNBOUNDED -->
+  <div class="card">
+    <div class="font-header">
+      <span class="font-badge badge-display">Display</span>
+      <span class="font-name">Unbounded</span>
+      <span class="font-desc">Rounded geometric &middot; Cyrillic &check;</span>
+    </div>
+    <div class="preview">
+      <span class="preview-unbounded">Работай летом</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Элемент</th><th>Размер</th><th>Вес</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="el-name">Hero заголовок</td>
+          <td class="el-size">clamp(1.75rem, 5.2vw, 3.3rem)</td>
+          <td class="el-weight">900</td>
+        </tr>
+        <tr>
+          <td class="el-name">Секция заголовок</td>
+          <td class="el-size">clamp(1.45rem, 4vw, 2.3rem)</td>
+          <td class="el-weight">900</td>
+        </tr>
+        <tr>
+          <td class="el-name">Большие цифры (trust)</td>
+          <td class="el-size">clamp(1.8rem, 4.2vw, 2.8rem)</td>
+          <td class="el-weight">800</td>
+        </tr>
+        <tr>
+          <td class="el-name">Цифры (stat)</td>
+          <td class="el-size">clamp(1.3rem, 2.5vw, 1.8rem)</td>
+          <td class="el-weight">800</td>
+        </tr>
+        <tr>
+          <td class="el-name">Суммы (ticket)</td>
+          <td class="el-size">1.65rem</td>
+          <td class="el-weight">700</td>
+        </tr>
+        <tr>
+          <td class="el-name">Кнопки / CTA</td>
+          <td class="el-size">0.82rem</td>
+          <td class="el-weight">700</td>
+        </tr>
+        <tr>
+          <td class="el-name">Бейдж / eyebrow</td>
+          <td class="el-size">0.78rem</td>
+          <td class="el-weight">600</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <div class="note-icon">!</div>
+      <span>Только короткие фразы 2–4 слова. Если текст длиннее — переходи на Manrope.</span>
+    </div>
+  </div>
+
+  <!-- MANROPE -->
+  <div class="card">
+    <div class="font-header">
+      <span class="font-badge badge-body">Body</span>
+      <span class="font-name">Manrope</span>
+      <span class="font-desc">Semi-rounded sans &middot; Cyrillic &check;</span>
+    </div>
+    <div class="preview">
+      <span class="preview-manrope">Мы помогаем студентам из Казахстана легально работать в Германии по программе Ferienjob. Полное сопровождение от визы до трудоустройства.</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Элемент</th><th>Размер</th><th>Вес</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="el-name">Подзаголовки карточек</td>
+          <td class="el-size">1.3rem</td>
+          <td class="el-weight">700</td>
+        </tr>
+        <tr>
+          <td class="el-name">Карточки h3</td>
+          <td class="el-size">1.05rem</td>
+          <td class="el-weight">600</td>
+        </tr>
+        <tr>
+          <td class="el-name">Форма заголовок</td>
+          <td class="el-size">1.2rem</td>
+          <td class="el-weight">600</td>
+        </tr>
+        <tr>
+          <td class="el-name">Основной текст</td>
+          <td class="el-size">1rem (16px)</td>
+          <td class="el-weight">400</td>
+        </tr>
+        <tr>
+          <td class="el-name">Акцент в тексте</td>
+          <td class="el-size">1rem</td>
+          <td class="el-weight">500</td>
+        </tr>
+        <tr>
+          <td class="el-name">Бейдж текст</td>
+          <td class="el-size">clamp(15px, 3.6vw, 22px)</td>
+          <td class="el-weight">600</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <div class="note-icon">!</div>
+      <span>Всё длиннее 4 слов, весь body-текст, поля формы.</span>
+    </div>
+  </div>
+
+  <!-- SPACE MONO -->
+  <div class="card">
+    <div class="font-header">
+      <span class="font-badge badge-mono">Mono</span>
+      <span class="font-name">Space Mono</span>
+      <span class="font-desc">Monospace accent &middot; Latin only</span>
+    </div>
+    <div class="preview">
+      <span class="preview-mono">STEP 01 &middot; 2025 &middot; #ferienjob &middot; DE &rarr; KZ</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Элемент</th><th>Размер</th><th>Вес</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="el-name">Теги / метки</td>
+          <td class="el-size">0.75–0.85rem</td>
+          <td class="el-weight">400</td>
+        </tr>
+        <tr>
+          <td class="el-name">Даты / шаги</td>
+          <td class="el-size">0.8rem</td>
+          <td class="el-weight">400</td>
+        </tr>
+        <tr>
+          <td class="el-name">Мелкие детали</td>
+          <td class="el-size">0.7–0.78rem</td>
+          <td class="el-weight">700</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <div class="note-icon">!</div>
+      <span>Только Latin. Для кириллических тегов используй Manrope 500.</span>
+    </div>
+  </div>
+
+  <!-- CSS VARIABLES -->
+  <div class="vars-bar">
+    <span style="font-weight:600;color:#1a1a1a;">CSS:</span>
+    <span><code>--font-heading</code> Unbounded</span>
+    <span><code>--font-body</code> Manrope</span>
+    <span><code>--font-mono</code> Space Mono</span>
+  </div>
+
+  <!-- BRAND PALETTE -->
+  <div class="palette">
+    <h3>Палитра бренда</h3>
+    <div class="swatches">
+      <div class="swatch" style="background:#0156BA;">
+        <span class="swatch-name" style="color:#fff;">Blue</span>
+        <span class="swatch-hex" style="color:#A7BCED;">#0156BA</span>
+      </div>
+      <div class="swatch" style="background:#E62329;">
+        <span class="swatch-name" style="color:#fff;">Red</span>
+        <span class="swatch-hex" style="color:#FFE9E9;">#E62329</span>
+      </div>
+      <div class="swatch" style="background:#FDBD35;">
+        <span class="swatch-name" style="color:#412402;">Yellow</span>
+        <span class="swatch-hex" style="color:#633806;">#FDBD35</span>
+      </div>
+      <div class="swatch" style="background:#060707;">
+        <span class="swatch-name" style="color:#fff;">Black</span>
+        <span class="swatch-hex" style="color:#999;">#060707</span>
+      </div>
+      <div class="swatch" style="background:#EAF1FB;">
+        <span class="swatch-name" style="color:#0156BA;">Tint 1</span>
+        <span class="swatch-hex" style="color:#0156BA;">#EAF1FB</span>
+      </div>
+      <div class="swatch" style="background:#D7E3F8;">
+        <span class="swatch-name" style="color:#0156BA;">Tint 2</span>
+        <span class="swatch-hex" style="color:#0156BA;">#D7E3F8</span>
+      </div>
+      <div class="swatch" style="background:#A7BCED;">
+        <span class="swatch-name" style="color:#042C53;">Tint 3</span>
+        <span class="swatch-hex" style="color:#042C53;">#A7BCED</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

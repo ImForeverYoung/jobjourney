@@ -1,0 +1,43 @@
+.page {
+  width: min(760px, 100% - 32px);
+  margin: 4rem auto 5rem;
+  background: #fff;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  line-height: 1.65;
+  color: #333a42;
+}
+
+.page h1 {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 900;
+  color: #17202b;
+  margin-bottom: 1rem;
+}
+
+.page h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #17202b;
+  margin: 1.75rem 0 0.4rem;
+}
+
+.page a {
+  color: #3e74be;
+  text-decoration: underline;
+}
+
+.note {
+  background: #fff4d6;
+  color: #6b4700;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 1.75rem 1.25rem;
+  }
+}
